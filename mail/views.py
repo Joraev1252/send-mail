@@ -8,8 +8,8 @@ def send_mail(request):
     theme = "Assalomu aleykum"
     body = "Peshin Vaqti boldi!"
     sender = "joraev_azam@mail.ru"
-    reciever = "joraev_azam@mail.ru"
-    # reciever = "joraev.azam1252@gmail.com"
+    # reciever = "joraev_azam@mail.ru"
+    reciever = "joraev.azam1252@gmail.com"
     password = "JsnkpW0vizyNVcYNbarY"
 
     message = f'Subject: {theme}\n\n{body}'
