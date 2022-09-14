@@ -1,15 +1,19 @@
+import datetime
+
 from django.http import HttpResponse
 from django.shortcuts import render
 import smtplib
+import schedule
+import time
 
 
 
-def send_mail(request):
+def send_mail():
     theme = "Assalomu aleykum"
-    body = "Peshin Vaqti boldi!"
+    body = f"Peshin Vaqti boldi!{datetime.datetime.now()}"
     sender = "joraev_azam@mail.ru"
-    # reciever = "joraev_azam@mail.ru"
-    reciever = "joraev.azam1252@gmail.com"
+    reciever = "joraev_azam@mail.ru"
+    # reciever = "joraev.azam1252@gmail.com"
     password = "JsnkpW0vizyNVcYNbarY"
 
     message = f'Subject: {theme}\n\n{body}'
@@ -63,8 +67,22 @@ def send_mail(request):
         return HttpResponse("Some thing wrong!")
 
 
+def auto_send(request):
+    # schedule.every(10).seconds.do(send_mail)
+    schedule.every().day.at("17:50").do(send_mail)
+    time_send = "17:50"
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+    # while time_send:
+    #     schedule.run_pending()
+    #     time.sleep(1)
+    # return HttpResponse("Well done!")
 
-# send_mail()
+
+
+
+
 
 
 
