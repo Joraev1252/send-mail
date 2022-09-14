@@ -5,7 +5,7 @@ from django.shortcuts import render
 import smtplib
 import schedule
 import time
-
+from requests import request
 
 
 def send_mail():
@@ -19,6 +19,7 @@ def send_mail():
     message = f'Subject: {theme}\n\n{body}'
 
     try:
+        print("0")
         server = smtplib.SMTP("smtp.mail.ru", 2525)
         print("1")
         # server.connect("smtp.gmail.com", 587)
@@ -69,8 +70,8 @@ def send_mail():
 
 def auto_send(request):
     # schedule.every(10).seconds.do(send_mail)
-    schedule.every().day.at("17:50").do(send_mail)
-    time_send = "17:50"
+    schedule.every().day.at("18:56").do(send_mail)
+
     while True:
         schedule.run_pending()
         time.sleep(1)

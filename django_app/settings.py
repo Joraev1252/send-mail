@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'mail.apps.MailConfig',
     'whitenoise.runserver_nostatic',
+    'django_crontab'
 ]
 
 MIDDLEWARE = [
@@ -127,5 +128,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+
+CRONJOBS = [
+    ('28 19 * * *', 'mail.views.send_mail')
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
