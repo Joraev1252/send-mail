@@ -2,7 +2,7 @@ import smtplib
 from django.http import HttpResponse
 
 
-def send_mail(request):
+def send_mail():
     theme = "Assalomu aleykum"
     body = f"Peshin Vaqti boldi!"
     sender = "joraev_azam@mail.ru"
@@ -37,7 +37,7 @@ def send_mail(request):
         return HttpResponse("Some thing wrong!")
 
 
-
-
+if __name__ == "__views__":
+    send_mail()
 
 
