@@ -50,7 +50,7 @@ def send_mail():
 
 
 def auto_send(request):
-    schedule.every().day.at("17:48").do(send_mail)
+    schedule.every().day.at("18:14").do(send_mail)
     schedule.run_pending()
     return HttpResponse("send")
 
