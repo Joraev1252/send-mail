@@ -129,8 +129,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-CRONJOBS = [
-    ('28 19 * * *', 'mail.views.send_mail')
-]
+# CRONJOBS = [
+#     ('25 20 * * *', 'http://127.0.0.1:8000/auto_send/')
+# ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
