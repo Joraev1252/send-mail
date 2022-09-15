@@ -1,7 +1,7 @@
 import smtplib
 import schedule
 import time
-from apscheduler.schedulers.blocking import BlockingScheduler
+# from apscheduler.schedulers.blocking import BlockingScheduler
 import logging
 
 from django.http import HttpResponse
@@ -50,7 +50,7 @@ def send_mail():
 
 
 def auto_send(request):
-    schedule.every().day.at("18:14").do(send_mail)
+    schedule.every().day.at("18:47").do(send_mail)
     schedule.run_pending()
     return HttpResponse("send")
 
