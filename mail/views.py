@@ -10,7 +10,7 @@ def send_mail():
     reciever = "joraev.azam08@gmail.com"
     # reciever = "joraev_azam@mail.ru"
     password = "xJnmp2v6gEWgKrfJ8euj"
-    message = f'Subject: {theme}\n\n{body}'
+    message = f'Subject: {theme}\n\n{body}\n\n{sender}'
 
     try:
         server = smtplib.SMTP("smtp.mail.ru", 587)
