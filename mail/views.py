@@ -4,6 +4,9 @@ import time
 from apscheduler.schedulers.blocking import BlockingScheduler
 import logging
 
+from django.http import HttpResponse
+
+
 def send_mail():
     theme = "Assalomu aleykum"
     body = f"Peshin Vaqti boldi!"
@@ -47,8 +50,9 @@ def send_mail():
 
 
 def auto_send(request):
-    schedule.every().day.at("17:40").do(send_mail)
+    schedule.every().day.at("17:48").do(send_mail)
     schedule.run_pending()
+    return HttpResponse("send")
 
     # log = logging.getLogger('apscheduler.executors.default')
     # log.setLevel(logging.INFO)  # DEBUG
@@ -78,7 +82,6 @@ def auto_send(request):
 #     #     time.sleep(1)
 #
 #     return HttpResponse("Well done!")
-
 
 
 
