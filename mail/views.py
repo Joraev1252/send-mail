@@ -7,7 +7,7 @@ import logging
 from django.http import HttpResponse
 
 
-def send_mail():
+def send_mail(request):
     theme = "Assalomu aleykum"
     body = f"Peshin Vaqti boldi!"
     sender = "joraev_azam@mail.ru"
@@ -35,11 +35,11 @@ def send_mail():
         server.quit()
 
         print("")
-        print("Successfully! 587")
+        return HttpResponse("Successfully! 587")
 
     except:
         print("")
-        print("Some thing wrong!")
+        return HttpResponse("Some thing wrong!")
 
 
 
@@ -49,31 +49,31 @@ def send_mail():
 
 
 
-def auto_send(request):
-    # schedule.every().day.at("19:07").do(send_mail)
-    # schedule.every(30).seconds.do(send_mail)
-    # schedule.run_pending()
-    # return HttpResponse("send")
-
-    log = logging.getLogger('apscheduler.executors.default')
-    log.setLevel(logging.INFO)  # DEBUG
-
-    fmt = logging.Formatter('%(levelname)s:%(name)s:%(message)s')
-    h = logging.StreamHandler()
-    h.setFormatter(fmt)
-    log.addHandler(h)
-
-    print('start to do it')
-
-    sched = BlockingScheduler()
-
-    # Schedules job_function to be run on the third Friday
-    #  of June, July, August, November and December at 00:00, 01:00, 02:00 and 03:00
-    sched.add_job(send_mail, 'cron', hour='20', minute="29", second="10")
-    sched.start()
-    # sched.shutdown()
-
-    # return HttpResponse('Well done!')
+# def auto_send(request):
+#     # schedule.every().day.at("19:07").do(send_mail)
+#     # schedule.every(30).seconds.do(send_mail)
+#     # schedule.run_pending()
+#     # return HttpResponse("send")
+#
+#     log = logging.getLogger('apscheduler.executors.default')
+#     log.setLevel(logging.INFO)  # DEBUG
+#
+#     fmt = logging.Formatter('%(levelname)s:%(name)s:%(message)s')
+#     h = logging.StreamHandler()
+#     h.setFormatter(fmt)
+#     log.addHandler(h)
+#
+#     print('start to do it')
+#
+#     sched = BlockingScheduler()
+#
+#     # Schedules job_function to be run on the third Friday
+#     #  of June, July, August, November and December at 00:00, 01:00, 02:00 and 03:00
+#     sched.add_job(send_mail, 'cron', hour='20', minute="29", second="10")
+#     sched.start()
+#     # sched.shutdown()
+#
+#     # return HttpResponse('Well done!')
 
 
 # def auto_send(request):
