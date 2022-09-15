@@ -1,9 +1,4 @@
 import smtplib
-import schedule
-import time
-from apscheduler.schedulers.blocking import BlockingScheduler
-import logging
-
 from django.http import HttpResponse
 
 
@@ -40,52 +35,6 @@ def send_mail(request):
     except:
         print("")
         return HttpResponse("Some thing wrong!")
-
-
-
-# while True:
-# send_mail()
-
-
-
-
-# def auto_send(request):
-#     # schedule.every().day.at("19:07").do(send_mail)
-#     # schedule.every(30).seconds.do(send_mail)
-#     # schedule.run_pending()
-#     # return HttpResponse("send")
-#
-#     log = logging.getLogger('apscheduler.executors.default')
-#     log.setLevel(logging.INFO)  # DEBUG
-#
-#     fmt = logging.Formatter('%(levelname)s:%(name)s:%(message)s')
-#     h = logging.StreamHandler()
-#     h.setFormatter(fmt)
-#     log.addHandler(h)
-#
-#     print('start to do it')
-#
-#     sched = BlockingScheduler()
-#
-#     # Schedules job_function to be run on the third Friday
-#     #  of June, July, August, November and December at 00:00, 01:00, 02:00 and 03:00
-#     sched.add_job(send_mail, 'cron', hour='20', minute="29", second="10")
-#     sched.start()
-#     # sched.shutdown()
-#
-#     # return HttpResponse('Well done!')
-
-
-# def auto_send(request):
-#     # schedule.every(10).seconds.do(send_mail)
-#     schedule.every().day.at("10:28").do(send_mail)
-#
-#     # while True:
-#     schedule.run_pending()
-#     #     time.sleep(1)
-#
-#     return HttpResponse("Well done!")
-
 
 
 
