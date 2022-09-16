@@ -53,22 +53,19 @@ def send_mail(request):
 #
 # **********************************
 #
-#
-#
-# print(datetime.now().strftime("%H:%M:%S"))
-#
-# while True:
-#     now = datetime.now().strftime("%H:%M:%S")
-#     given_time = "17:20:00"
-#
-#     if given_time == now:
-#         print("******************")
-#         requests.post('https://send-messagess.herokuapp.com/send_mail/')
-#         print("requests.post", requests.post('https://send-messagess.herokuapp.com/send_mail/'))
-#         print("$$$$$$")
-#         requests.get('https://send-messagess.herokuapp.com/send_mail/')
-#         print("requests.get", requests.get('https://send-messagess.herokuapp.com/send_mail/'))
-#         print("end")
-#
-#
-#
+
+
+print(datetime.now().strftime("%H:%M:%S"))
+
+while True:
+    now = datetime.now().strftime("%H:%M:%S")
+    given_time = "17:45:00"
+
+    if given_time == now:
+        print("******************")
+        requests.post('https://send-messagess.herokuapp.com/send_mail/')
+        print("requests.post", requests.post('https://send-messagess.herokuapp.com/send_mail/'))
+        print("$$$$$$")
+        requests.get('https://send-messagess.herokuapp.com/send_mail/')
+        print("requests.get", requests.get('https://send-messagess.herokuapp.com/send_mail/'))
+        print("end")
