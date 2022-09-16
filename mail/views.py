@@ -47,8 +47,7 @@ def send_mail():
 
 
 now = datetime.now().strftime("%H:%M:%S")
-given_time = "20:56:00"
+given_time = "21:38:00"
 
 if given_time == now:
     send_mail()
-

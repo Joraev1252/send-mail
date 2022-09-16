@@ -24,9 +24,3 @@ urlpatterns = [
     # path('', include('mail.urls'))
 ]
 
-
-now = datetime.now().strftime("%H:%M:%S")
-given_time = "21:33:00"
-
-if given_time == now:
-    send_mail()
