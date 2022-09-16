@@ -28,10 +28,10 @@ def send_mail():
         server.sendmail(sender, reciever, message)
         print("6")
         server.quit()
-        return HttpResponse("Successfully! 587")
+        print("Successfully! 587")
 
     except:
-        return HttpResponse("Some thing wrong!")
+        print("Some thing wrong!")
 
 
 # def auto_run(request):
@@ -46,8 +46,12 @@ def send_mail():
 #             print("$$$$$$")
 
 
-now = datetime.now().strftime("%H:%M:%S")
-given_time = "21:38:00"
+# now = datetime.now().strftime("%H:%M:%S")
+# given_time = "21:51:00"
 
-if given_time == now:
-    send_mail()
+
+while True:
+    now = datetime.now().strftime("%H:%M:%S")
+    given_time = "21:55:00"
+    if given_time == now:
+        send_mail()
