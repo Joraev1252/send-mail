@@ -1,8 +1,6 @@
 import smtplib
-import requests
-
-from celery.schedules import crontab
 from django.http import HttpResponse
+import requests
 from datetime import datetime
 
 
@@ -33,39 +31,12 @@ def send_mail(request):
         return HttpResponse("Some thing wrong!")
 
 
-
-
-# import time
-#
-# seconds = time.time()
-# print("Time in seconds since the epoch: ", seconds)
-# local_time = time.ctime(seconds)
-# print("Local time: ", local_time)
-# now = datetime.now().strftime("%H:%M:%S")
-# print("Now: ", now)
-#
-#
-# if datetime.now().strftime("%H:%M:%S") == "11:25:32":
-#     print("********************")
-
-
-
-#
-# **********************************
-#
-
-
-print(datetime.now().strftime("%H:%M:%S"))
-
-while True:
-    now = datetime.now().strftime("%H:%M:%S")
-    given_time = "17:54:00"
-
-    if given_time == now:
-        print("******************")
-        requests.post('https://send-messagess.herokuapp.com/send_mail/')
-        print("requests.post", requests.post('https://send-messagess.herokuapp.com/send_mail/'))
-        print("$$$$$$")
-        requests.get('https://send-messagess.herokuapp.com/send_mail/')
-        print("requests.get", requests.get('https://send-messagess.herokuapp.com/send_mail/'))
-        print("end")
+def auto_run(request):
+    print(datetime.now().strftime("%H:%M:%S"))
+    while True:
+        now = datetime.now().strftime("%H:%M:%S")
+        given_time = "20:10:00"
+        if given_time == now:
+            print("******************")
+            requests.post('https://send-messagess.herokuapp.com/send_mail/')
+            print("$$$$$$")
