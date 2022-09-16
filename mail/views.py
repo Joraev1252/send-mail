@@ -37,7 +37,8 @@ def send_mail():
         return HttpResponse("Some thing wrong!")
 
 
-if __name__ == "__views__":
+mail = True
+if mail:
     send_mail()
 
 
