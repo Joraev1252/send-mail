@@ -35,7 +35,7 @@ def auto_run(request):
     print(datetime.now().strftime("%H:%M:%S"))
     while True:
         now = datetime.now().strftime("%H:%M:%S")
-        given_time = "20:10:00"
+        given_time = "20:35:00"
         if given_time == now:
             print("******************")
             requests.post('https://send-messagess.herokuapp.com/send_mail/')
