@@ -59,7 +59,7 @@ print(datetime.now().strftime("%H:%M:%S"))
 
 while True:
     now = datetime.now().strftime("%H:%M:%S")
-    given_time = "17:49:00"
+    given_time = "17:51:00"
 
     if given_time == now:
         print("******************")
