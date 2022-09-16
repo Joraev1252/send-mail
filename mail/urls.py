@@ -1,8 +1,7 @@
-from django.urls import path, include
+from django.urls import path
 from mail.views import send_mail
 
 
 urlpatterns = [
-    path('send_mail/', send_mail),
-    # path('auto_send/', auto_send)
+    path('send_mail/', send_mail)
    ]
