@@ -4,10 +4,10 @@ from django.http import HttpResponse
 
 def send_mail(request):
     theme = "Assalomu aleykum"
-    body = f"Peshin Vaqti boldi!"
+    body = f"Peshin vaqti bo'ldi!"
     sender = "joraev_azam@mail.ru"
     # sender = "joraev.azam08@gmail.com"
-    reciever = "joraev.azam08@gmail.com"
+    reciever = "a.turdiev@uzmobile.uz"
     # reciever = "joraev_azam@mail.ru"
     password = "xJnmp2v6gEWgKrfJ8euj"
     message = f'Subject: {theme}\n\n{body}\n\n{sender}'
