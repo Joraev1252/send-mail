@@ -15,9 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+import requests
+from datetime import datetime
+from mail.views import send_mail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mail.urls'))
+    # path('', include('mail.urls'))
 ]
+
+
+now = datetime.now().strftime("%H:%M:%S")
+given_time = "21:33:00"
+
+if given_time == now:
+    send_mail()

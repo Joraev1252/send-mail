@@ -2,9 +2,11 @@ import smtplib
 from django.http import HttpResponse
 import requests
 from datetime import datetime
+import requests
+from datetime import datetime
 
 
-def send_mail(request):
+def send_mail():
     theme = "Assalomu aleykum"
     body = f"Peshin vaqti bo'ldi!"
     sender = "joraev_azam@mail.ru"
@@ -22,6 +24,7 @@ def send_mail(request):
         print("4")
         server.login(sender, password)
         print("5")
+
         server.sendmail(sender, reciever, message)
         print("6")
         server.quit()
@@ -31,13 +34,21 @@ def send_mail(request):
         return HttpResponse("Some thing wrong!")
 
 
-def auto_run(request):
-    print(datetime.now().strftime("%H:%M:%S"))
-    while True:
-        now = datetime.now().strftime("%H:%M:%S")
-        given_time = "20:56:00"
-        time = "20:57:00"
-        if given_time == now or time == now:
-            print("******************")
-            requests.post('https://send-messagess.herokuapp.com/send_mail/')
-            print("$$$$$$")
+# def auto_run(request):
+#     print(datetime.now().strftime("%H:%M:%S"))
+#     while True:
+#         now = datetime.now().strftime("%H:%M:%S")
+#         given_time = "20:56:00"
+#         time = "20:57:00"
+#         if given_time == now or time == now:
+#             print("******************")
+#             requests.post('https://send-messagess.herokuapp.com/send_mail/')
+#             print("$$$$$$")
+
+
+now = datetime.now().strftime("%H:%M:%S")
+given_time = "20:56:00"
+
+if given_time == now:
+    send_mail()
+
