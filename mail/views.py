@@ -5,7 +5,7 @@ from mail.tests import password
 theme = "Assalamu Alaikum"
 sender = "joraev_azam@mail.ru"
 reciever = "joraev.azam1252@gmail.com"
-given_time = "13:15:15"
+given_time = "13:25:15"
 
 
 def send_mail():
