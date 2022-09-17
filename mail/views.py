@@ -17,7 +17,7 @@ current_period = now.strftime("%p")
 
 
 def send_mail():
-    if datetime.now().strftime("%H:%M") == "03:00":
+    if datetime.now().strftime("%H:%M") == "09:00":
         body = f"Dhuhur Prayer Time 12:16 PM"
         message = f'Subject: {theme}\n\n{body}\n\n{sender}'
         server = smtplib.SMTP("smtp.mail.ru", 587)
@@ -29,7 +29,7 @@ def send_mail():
         server.quit()
         print("Succesfully! 1")
     else:
-        hour_delta = int(current_hour) - 3
+        hour_delta = int(current_hour) - 9
         min_delta = int(current_min) - 0
         sec_delta = int(current_sec) - 5
 
@@ -72,7 +72,7 @@ def send_mail():
 
 Timer(
     (datetime.combine(
-        datetime.today(), time(3, 0, 5)
+        datetime.today(), time(9, 0, 5)
     ) - datetime.now()).total_seconds(),
     send_mail
 ).start()
