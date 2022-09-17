@@ -55,4 +55,4 @@ def send_mail():
 #                 print("Something wrong")
 #
 
-set_interval(send_mail, 10)
+set_interval(send_mail, 30)
