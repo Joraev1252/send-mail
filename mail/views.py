@@ -1,57 +1,44 @@
 import smtplib
-from django.http import HttpResponse
-import requests
 from datetime import datetime
-import requests
-from datetime import datetime
+from mail.tests import password
+
+theme = "Assalamu Alaikum"
+sender = "joraev_azam@mail.ru"
+reciever = "joraev.azam1252@gmail.com"
+given_time = "12:55:00"
 
 
 def send_mail():
-    theme = "Assalomu aleykum"
-    body = f"Peshin vaqti bo'ldi!"
-    sender = "joraev_azam@mail.ru"
-    reciever = "joraev.azam1252@gmail.com"
-    password = "xJnmp2v6gEWgKrfJ8euj"
+    body = f"Dhuhur Prayer Time 12:16 PM"
     message = f'Subject: {theme}\n\n{body}\n\n{sender}'
-    try:
-        server = smtplib.SMTP("smtp.mail.ru", 587)
-        print("1")
-        server.ehlo()
-        print("2")
-        server.starttls()
-        print("3")
-        server.ehlo()
-        print("4")
-        server.login(sender, password)
-        print("5")
-
-        server.sendmail(sender, reciever, message)
-        print("6")
-        server.quit()
-        print("Successfully! 587")
-
-    except:
-        print("Some thing wrong!")
-
-
-# def auto_run(request):
-#     print(datetime.now().strftime("%H:%M:%S"))
-#     while True:
-#         now = datetime.now().strftime("%H:%M:%S")
-#         given_time = "20:56:00"
-#         time = "20:57:00"
-#         if given_time == now or time == now:
-#             print("******************")
-#             requests.post('https://send-messagess.herokuapp.com/send_mail/')
-#             print("$$$$$$")
-
-
-# now = datetime.now().strftime("%H:%M:%S")
-# given_time = "21:51:00"
+    server = smtplib.SMTP("smtp.mail.ru", 587)
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+    server.login(sender, password)
+    server.sendmail(sender, reciever, message)
+    server.quit()
+    print("Successfully! 587")
 
 
 while True:
     now = datetime.now().strftime("%H:%M:%S")
-    given_time = "21:59:00"
-    if given_time == now:
-        send_mail()
+    time = datetime.now()
+    if now == given_time:
+        try:
+            send_mail()
+        except:
+            try:
+                delta = datetime.now() - time
+                body = f"Dhuhur Prayer Time 12:16 PM\nSorry we are {delta} late due to technical issues."
+                message = f'Subject: {theme}\n\n{body}\n\n{sender}'
+                server = smtplib.SMTP("smtp.mail.ru", 587)
+                server.ehlo()
+                server.starttls()
+                server.ehlo()
+                server.login(sender, password)
+                server.sendmail(sender, reciever, message)
+                server.quit()
+                print("Successfully! 587")
+            except:
+                print("Something wrong")

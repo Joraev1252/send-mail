@@ -21,6 +21,6 @@ from mail.views import send_mail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include('mail.urls'))
+    path('', include('mail.urls'))
 ]
 
