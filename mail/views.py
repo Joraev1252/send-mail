@@ -1,10 +1,8 @@
 import smtplib
-import math
 import threading
-
+from threading import Timer
 from mail.tests import password
 from datetime import datetime, time
-from threading import Timer
 
 
 theme = "Assalamu Alaikum"
@@ -17,14 +15,10 @@ current_min = now.strftime("%M")
 current_sec = now.strftime("%S")
 current_period = now.strftime("%p")
 
-a = 0
-while a < 5:
-    print("Hello world!")
-    a += 1
 
 def send_mail():
     try:
-        if datetime.now().strftime("%H:%M") == "18:40":
+        if datetime.now().strftime("%H:%M") == "19:24":
             body = f"Dhuhur Prayer Time 12:16 PM"
             message = f'Subject: {theme}\n\n{body}\n\n{sender}'
             server = smtplib.SMTP("smtp.mail.ru", 587)
@@ -35,9 +29,9 @@ def send_mail():
             server.sendmail(sender, reciever, message)
             server.quit()
             print("Succesfully! 1")
-        elif datetime.now().strftime("%H:%M") != "18:40":
-            hour_delta = int(current_hour) + 12 - 18
-            min_delta = int(current_min) - 40
+        elif datetime.now().strftime("%H:%M") != "19:24":
+            hour_delta = int(current_hour) + 12 - 19
+            min_delta = int(current_min) - 24
             sec_delta = int(current_sec) - 0
 
             if hour_delta != 0:
@@ -79,4 +73,5 @@ def send_mail():
         print("Some thing wrong!")
 
 
-threading.Timer((datetime.combine(datetime.today(), time(18, 40, 0)) - datetime.now()).total_seconds(), send_mail).start()
+Timer((datetime.combine(datetime.today(), time(19, 24, 0)) - datetime.now()).total_seconds(), send_mail).start()
+# threading.Timer((datetime.combine(datetime.today(), time(18, 48, 0)) - datetime.now()).total_seconds(), send_mail).start()
