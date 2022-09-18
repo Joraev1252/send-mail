@@ -20,7 +20,7 @@ current_period = now.strftime("%p")
 
 def send_mail():
     try:
-        if datetime.now().strftime("%H:%M") == "18:05":
+        if datetime.now().strftime("%H:%M") == "18:25":
             body = f"Dhuhur Prayer Time 12:16 PM"
             message = f'Subject: {theme}\n\n{body}\n\n{sender}'
             server = smtplib.SMTP("smtp.mail.ru", 587)
@@ -31,10 +31,10 @@ def send_mail():
             server.sendmail(sender, reciever, message)
             server.quit()
             print("Succesfully! 1")
-        elif datetime.now().strftime("%H:%M") != "18:05":
+        elif datetime.now().strftime("%H:%M") != "18:25":
             hour_delta = int(current_hour) + 12 - 18
-            min_delta = int(current_min) - 5
-            sec_delta = int(current_sec) - 5
+            min_delta = int(current_min) - 25
+            sec_delta = int(current_sec) - 0
 
             if hour_delta != 0:
                 body = f"Dhuhur Prayer Time 12:16 PM, Sorry we are {round(abs(hour_delta))} hour {round(abs(min_delta))} minutes late due to technical issues."
@@ -75,15 +75,4 @@ def send_mail():
         print("Some thing wrong!")
 
 
-threading.Timer((datetime.combine(datetime.today(), time(18, 5, 5)) - datetime.now()).total_seconds(), send_mail).start()
-
-#
-# def set_interval(func):
-#     def func_wrapper():
-#         set_interval(func)
-#         func()
-#     t = threading.Timer((datetime.combine(datetime.today(), time(9, 55, 5)) - datetime.now()).total_seconds(), func).start()
-#     return t
-#
-#
-# set_interval(send_mail)
+threading.Timer((datetime.combine(datetime.today(), time(18, 25, 0)) - datetime.now()).total_seconds(), send_mail).start()
