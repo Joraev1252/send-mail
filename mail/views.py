@@ -23,7 +23,7 @@ def send_mail(body):
     today = date.today()
     message = f'Subject: {theme}\n\n{body}\n\n{sender}'
     server = smtplib.SMTP("smtp.mail.ru", 587)
-    if str(today) not in date_sent
+    if str(today) not in date_sent:
         server.ehlo()
         server.starttls()
         server.ehlo()
