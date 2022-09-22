@@ -15,7 +15,7 @@ current_sec = now.strftime("%S")
 current_period = now.strftime("%p")
 
 
-with open("/Users/Shared/Files From d.localized/IT/My projects/send email/django_app/db_file.txt", 'r') as d:
+with open("https://github.com/Joraev1252/send-mail/blob/da0cc19028aaf8ac86c1c2605a843b31197be588/mail/db_file.txt", 'r') as d:
     date_sent = d.read()
 
 
@@ -30,18 +30,18 @@ def send_mail(body):
         server.login(sender, password)
         server.sendmail(sender, reciever, message)
         today = date.today()
-        with open("/Users/Shared/Files From d.localized/IT/My projects/send email/django_app/db_file.txt", 'a') as f:
+        with open("https://github.com/Joraev1252/send-mail/blob/da0cc19028aaf8ac86c1c2605a843b31197be588/mail/db_file.txt", 'a') as f:
             f.write(f"{str(today)};")
         server.quit()
 
 
 def set_interval():
-    if datetime.now().strftime("%H:%M") == "08:00":
+    if datetime.now().strftime("%H:%M") == "12:09":
         body = f"Dhuhur Prayer Time 12:16 PM"
         send_mail(body=body)
-    elif datetime.now().strftime("%H:%M") != "08:00":
-        hour_delta = int(current_hour) - 8
-        min_delta = int(current_min) - 0
+    elif datetime.now().strftime("%H:%M") != "12:09":
+        hour_delta = int(current_hour) - 12
+        min_delta = int(current_min) - 9
         if hour_delta != 0:
             body = f"Dhuhur Prayer Time 12:16 PM, Sorry we are {abs(hour_delta)} hour {abs(min_delta)} minutes late due to technical issues."
         else:
@@ -49,4 +49,4 @@ def set_interval():
         send_mail(body=body)
 
 
-threading.Timer((datetime.combine(datetime.today(), time(8, 0, 0)) - datetime.now()).total_seconds(), set_interval).start()
+threading.Timer((datetime.combine(datetime.today(), time(12, 9, 0)) - datetime.now()).total_seconds(), set_interval).start()
